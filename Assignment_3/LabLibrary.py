@@ -50,46 +50,38 @@ class Matrix:
 def forward_substitution(mat,b):
     """solves y against a lower triangular matrix"""
     y = []
-    sum = 0
-    y1 = 0
     n = len(mat.ele)
     for i in range(n): # main loop
+        sum = 0
         if mat.ele[i][i] == 0: continue # skips singular pivot entries to avoid division by zero
         for j in range(i): # for all off daigonal elements
             sum += mat.ele[i][j]*y[j] # take sum of product non-pivot elements with corresponding y value
-        y1 = (b[i] - sum)/mat.ele[i][i]
-        sum = 0
-        y.append(y1) # append that y1 to new list
+        y.append((b[i] - sum)/mat.ele[i][i]) # append the value to new list
 
     return y # return the solution as list
 
 def backward_substitution(mat,y):
     x = []
-    sum = 0
-    x1 = 0
     n = len(mat.ele)
     for i in range(n):
         x.append(0)
 
     x[n-1] = y[n-1]/mat.ele[n-1][n-1]
     for i in range(n-1,-1,-1): # loop interates in reverse (main loop)
+        sum = 0
         if mat.ele[i][i] == 0: continue # skips singular pivot entries to avoid division by zero
         for j in range(i+1,n):
             sum += mat.ele[i][j]*x[j] # take sum of product non-pivot elements with corresponding y value
-        x1 = (1/mat.ele[i][i])*(y[i] - sum)
-        sum = 0
-        x[i] = x1
-
-
+        x[i] = (1/mat.ele[i][i])*(y[i] - sum)
+        
     return x # return the solution as list
 
 def is_symmetric(mat): # checks if matrix is is_symmetric or not?
     n = len(mat.ele)
     for i in range(n):
         for j in range(n):
-            if mat.ele[i][j] != mat.ele[j][i]: # ichecks if any of non symmetric elements are not equal
+            if mat.ele[i][j] != mat.ele[j][i]: # it checks that all (i,j) and (j,i) are equal, if not then they are not symmetric
                 return False
-
     return True
 
 def LUdecom(mat):
@@ -197,29 +189,28 @@ def cholesky(mat):
 
 
 
-def GaussSiedel(A,b):
-     x = []
-     xb = []
+def GaussSiedel(A,b,g):
+     x = g.copy()
      t = 1
-     c = 0
-     for i in range(len(A.ele)):
-         x.append(0) # initial guess
-         xb.append(0) # variabes to store values from last iteration
+     iter = 0
 
-     while t > eps and c < 100: # termination when tolerance becomes less than eps
-         for k in range(len(A.ele)):
-             xb[k] = x[k]
+     while t > eps: # termination when tolerance becomes less than eps
          for i in range(len(A.ele)):
-             sum = 0
-             for k in range(0,len(A.ele)):
-                 if i != k:
-                    sum += A.ele[i][k]*x[k]
-             x[i] = (1/A.ele[i][i])*(b[i]- sum)
-         c += 1
-         md = [abs(x[i]-xb[i]) for i in range(0,len(A.ele))] # find difference of all elements of all elemnts of vectors
-         t = max(md) # max of that list
+             l = 0
+             u = 0
+             for k in range(len(A.ele)):
+                        if k < i:
+                            l += A.ele[i][k]*x[k]
+                        elif k > i:
+                            u += A.ele[i][k]*g[k]
+                            
+             x[i] = (1/A.ele[i][i])*(b[i] - l - u)
+         iter += 1
+         t = max([abs(x[i]-g[i]) for i in range(0,len(A.ele))]) # find difference of all elements of all elemnts of vectors
+         g = x.copy()
+         print("Iteration: {} | Current Solution: {}".format(iter, x))
 
-     return x,c
+     return x,iter
 
 def DDcheck(A,i): # checks whether a pivot is daigonally dominant
         sum = 0
@@ -242,24 +233,22 @@ def makeDD(mat,b):
                 (mat.ele[i], mat.ele[maxelement]) = (mat.ele[maxelement], mat.ele[i]) # swap places with row having largest column element
                 (b[i], b[maxelement]) = (b[maxelement], b[i]) # swaping to simualte an augemntated matrix
 
-def jacobi(mat,b):
-     x_b = []
-     x_a = []
+def jacobi(mat,b,g):
+     x = g.copy()
      t = 1
-     c = 0
-     for i in range(0,len(mat.ele)):
-         x_a.append(1) # intialize first guess
-         x_b.append(1)
+     iter = 0
 
-     while t > eps and c < 100:
-         c = c + 1
+     while t > eps:
+         iter = iter + 1
          for i in range(0,len(mat.ele)):
              sum = 0
              for j in range(0,len(mat.ele)):
                  if i != j:
-                     sum += mat.ele[i][j]*x_b[j]
-             x_a[i] = (1/mat.ele[i][i])*(b[i]- sum)
-             t = (x_a[i] - x_b[i])*100/x_b[i]
-             t = abs(t)
-             x_b[i] = x_a[i]
-     return x_b,c
+                     sum += mat.ele[i][j]*g[j]
+             x[i] = (1/mat.ele[i][i])*(b[i]- sum)
+             t = abs((x[i] - x[i])*100/x[i])
+             g[i] = x[i]
+            
+         print("Iteration: {} | Current Solution: {}".format(iter, x))      
+    
+     return x,iter
