@@ -189,10 +189,14 @@ def cholesky(mat):
 
 
 
-def GaussSiedel(A,b,g):
-     x = g.copy()
+def GaussSiedel(A,b):
+     x = []
+     g = []
      t = 1
      iter = 0
+     for i in range(len(A.ele)):
+            x.append(0)
+            g.append(0)
 
      while t > eps: # termination when tolerance becomes less than eps
          for i in range(len(A.ele)):
@@ -208,7 +212,6 @@ def GaussSiedel(A,b,g):
          iter += 1
          t = max([abs(x[i]-g[i]) for i in range(0,len(A.ele))]) # find difference of all elements of all elemnts of vectors
          g = x.copy()
-         print("Iteration: {} | Current Solution: {}".format(iter, x))
 
      return x,iter
 
@@ -234,9 +237,13 @@ def makeDD(mat,b):
                 (b[i], b[maxelement]) = (b[maxelement], b[i]) # swaping to simualte an augemntated matrix
 
 def jacobi(mat,b,g):
-     x = g.copy()
+     x = []
+     g = []
      t = 1
      iter = 0
+     for i in range(len(A.ele)):
+            x.append(0)
+            g.append(0)
 
      while t > eps:
          iter = iter + 1
@@ -248,7 +255,6 @@ def jacobi(mat,b,g):
              x[i] = (1/mat.ele[i][i])*(b[i]- sum)
              t = abs((x[i] - x[i])*100/x[i])
              g[i] = x[i]
-            
-         print("Iteration: {} | Current Solution: {}".format(iter, x))      
+                  
     
      return x,iter
