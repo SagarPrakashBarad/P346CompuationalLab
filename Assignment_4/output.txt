@@ -1,0 +1,90 @@
+
+|-------------------Question 1-------------------------------|
+
+Iteration: 0 | Current Solution: 0.6558119080665479
+Iteration: 1 | Current Solution: -0.03310442709160588
+Iteration: 2 | Current Solution: -0.003878945511372911
+Iteration: 3 | Current Solution: -0.0004441154390210089
+Iteration: 4 | Current Solution: -5.071145996526916e-05
+Iteration: 5 | Current Solution: -5.788715987886661e-06
+Iteration: 6 | Current Solution: -6.60758954773577e-07
+Iteration: 7 | Current Solution: -7.542270907823223e-08
+Root of the equation using regular falsi: 0.8876428309549049
+
+****************************************************************
+
+Iteration: 0 | Current Solution: 2.3871970358801544
+Iteration: 1 | Current Solution: 1.9034850138137467
+Iteration: 2 | Current Solution: 0.78313318826721
+Iteration: 3 | Current Solution: 0.22549167719860785
+Iteration: 4 | Current Solution: -0.020998389040353893
+Iteration: 5 | Current Solution: 0.09882868219455587
+Iteration: 6 | Current Solution: 0.038017575923722235
+Iteration: 7 | Current Solution: 0.008280331582958489
+Iteration: 8 | Current Solution: -0.006416919167800295
+Iteration: 9 | Current Solution: 0.0009173039383699733
+Iteration: 10 | Current Solution: -0.00275341707102994
+Iteration: 11 | Current Solution: -0.0009189578252862818
+Iteration: 12 | Current Solution: -1.0521195308310638e-06
+Iteration: 13 | Current Solution: 0.00045806963276751045
+Iteration: 14 | Current Solution: 0.000228494685282854
+Iteration: 15 | Current Solution: 0.0001137177647707599
+Iteration: 16 | Current Solution: 5.633194305976197e-05
+Iteration: 17 | Current Solution: 2.763969187014048e-05
+Iteration: 18 | Current Solution: 1.3293731195518355e-05
+Iteration: 19 | Current Solution: 6.120792088948335e-06
+Iteration: 20 | Current Solution: 2.5343328429183742e-06
+Iteration: 21 | Current Solution: 7.411057970641011e-07
+Iteration: 22 | Current Solution: -1.5550708154510318e-07
+Root of the equation using bisection: 0.8876428005759704
+
+|-------------------Question 2-------------------------------|
+
+Iteration: 0 | Current Solution: 0.027103311857467283
+Iteration: 1 | Current Solution: 9.461538061772412e-05
+Iteration: 2 | Current Solution: 1.1809778710514252e-09
+Iteration: 3 | Current Solution: 0.0
+Root of the equation using newton raphson: -0.7390851332151607
+
+****************************************************************
+
+Iteration: 0 | Current Solution: -0.07316003706947638
+Iteration: 1 | Current Solution: -0.00146200602490143
+Iteration: 2 | Current Solution: -2.8283977252852033e-05
+Iteration: 3 | Current Solution: -5.468316818246777e-07
+Iteration: 4 | Current Solution: -1.0572105413331201e-08
+Root of the equation using regular falsi: -0.7390851268982215
+
+****************************************************************
+
+Iteration: 0 | Current Solution: -0.8208361058819825
+Iteration: 1 | Current Solution: -0.3801702123567383
+Iteration: 2 | Current Solution: -0.12252312696769252
+Iteration: 3 | Current Solution: 0.01463429814989059
+Iteration: 4 | Current Solution: -0.0546024450974506
+Iteration: 5 | Current Solution: -0.020145645014306934
+Iteration: 6 | Current Solution: -0.0027956915876137245
+Iteration: 7 | Current Solution: 0.0059093460589997315
+Iteration: 8 | Current Solution: 0.0015543319944707479
+Iteration: 9 | Current Solution: -0.0006213043469956991
+Iteration: 10 | Current Solution: 0.0004663577785639639
+Iteration: 11 | Current Solution: -7.751230706842804e-05
+Iteration: 12 | Current Solution: 0.0001944129814792639
+Iteration: 13 | Current Solution: 5.844789845765863e-05
+Iteration: 14 | Current Solution: -9.532814014945323e-06
+Iteration: 15 | Current Solution: 2.4457389796950224e-05
+Iteration: 16 | Current Solution: 7.462249784428998e-06
+Iteration: 17 | Current Solution: -1.0352916418598923e-06
+Iteration: 18 | Current Solution: 3.2134766896341205e-06
+Iteration: 19 | Current Solution: 1.0890919284189948e-06
+Iteration: 20 | Current Solution: 2.6899994454154807e-08
+Iteration: 21 | Current Solution: -5.041958608398289e-07
+Root of the equation using bisection: -0.7390848319530487
+
+|-------------------Question 3-------------------------------|
+
+[1.0, 2.0, -0.9999999999999998, -2.0]
+
+|-------------------Question 4-------------------------------|
+
+polyfit: 0.5746586674196081 + 4.725861442142035 x + -11.128217777643593 x^2 + 7.668677622909682x^3
