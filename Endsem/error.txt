@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "C:\Users\hp\OneDrive\Desktop\New folder\Endsem\q6.py", line 13, in <module>
+    k = A.eigenvalue(x0 = [1,1,1,1])
+  File "C:\Users\hp\OneDrive\Desktop\New folder\Endsem\LabLibrary\Eigenvalueandvectors.py", line 71, in eigenvalue
+    self.V1[l] += self.M[l][m]*x0[m]
+IndexError: list index out of range
