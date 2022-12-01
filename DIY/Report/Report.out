@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{Motivation}{}% 1
+\BOOKMARK [1][-]{section.2}{Theory}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Ising model}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Montecarlo Simulations}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{A Metropolis Monte Carlo algorithm: Psuedocode}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Results}{}% 6
+\BOOKMARK [2][-]{subsection.3.1}{Phase transitions in 2D Ising model}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.2}{Domain growth in 2D Ising model}{section.3}% 8
+\BOOKMARK [1][-]{section.4}{Caveat with the algorithm}{}% 9
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 10
+\BOOKMARK [1][-]{section.6}{References}{}% 11
