@@ -1,9 +1,0 @@
-Iteration: 0 | Current Solution: -19.82667421856191
-Iteration: 1 | Current Solution: -6.282886854816342
-Iteration: 2 | Current Solution: -1.6093792993275846
-Iteration: 3 | Current Solution: -0.22893422025772647
-Iteration: 4 | Current Solution: -0.007074082168134321
-Iteration: 5 | Current Solution: -7.377708749256584e-06
-Iteration: 6 | Current Solution: -8.047784660902835e-12
-Iteration: 7 | Current Solution: -4.440892098500626e-16
-The string can be streched to x = 0.958586356728703
