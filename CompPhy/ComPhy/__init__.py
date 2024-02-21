@@ -6,3 +6,4 @@ from .Rk import *
 from .LeastSquare import *
 from .Radioactivity import *
 from .NonLinearRoot import *
+from .miscs import *
