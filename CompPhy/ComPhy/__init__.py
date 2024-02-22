@@ -7,3 +7,5 @@ from .LeastSquare import *
 from .Radioactivity import *
 from .NonLinearRoot import *
 from .miscs import *
+from .diffeq import *
+from .bvp import *

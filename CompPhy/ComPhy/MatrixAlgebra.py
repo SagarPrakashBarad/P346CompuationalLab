@@ -1,4 +1,5 @@
 global eps
+import numpy as np
 eps = 1/10**8 # Predefined epsilon, will be used for tolerance testing.
 
 class Matrix:
@@ -225,3 +226,62 @@ def gaussjordan(mat,b):
             b[j] -= ratio*b[i]
 
     return b, mat
+
+
+
+def lu_decomposition(mat):
+    """Perform LU decomposition of a square matrix."""
+    n = len(mat)
+    L = np.zeros((n, n))
+    U = np.zeros((n, n))
+
+    for i in range(n):
+        for j in range(i, n):
+            U[i][j] = mat[i][j] - sum(L[i][k] * U[k][j] for k in range(i))
+            if i == j:
+                L[i][i] = 1
+            else:
+                L[j][i] = (mat[j][i] - sum(L[j][k] * U[k][i] for k in range(i))) / U[i][i]
+
+    return L, U
+
+def forward_substitution(L, b):
+    """Perform forward substitution to solve Ly = b."""
+    n = len(b)
+    y = np.zeros(n)
+
+    for i in range(n):
+        y[i] = b[i] - sum(L[i][j] * y[j] for j in range(i))
+
+    return y
+
+def backward_substitution(U, y):
+    """Perform backward substitution to solve Ux = y."""
+    n = len(y)
+    x = np.zeros(n)
+
+    for i in range(n - 1, -1, -1):
+        x[i] = (y[i] - sum(U[i][j] * x[j] for j in range(i + 1, n))) / U[i][i]
+
+    return x
+
+def solve_system_lu_decomposition(A, b):
+    """Solve a system of linear equations Ax = b using LU decomposition."""
+    L, U = lu_decomposition(A)
+    y = forward_substitution(L, b)
+    x = backward_substitution(U, y)
+    return x
+
+def inverse_matrix_lu_decomposition(A):
+    """Find the inverse of a matrix using LU decomposition."""
+    n = len(A)
+    I = np.eye(n)
+    A_inv = []
+
+    for i in range(n):
+        b = I[:, i]
+        x = solve_system_lu_decomposition(A, b)
+        A_inv.append(x)
+
+    return np.array(A_inv).T
+
